@@ -31,7 +31,12 @@ resource "aws_subnet" "sn_reserved_A" {
   vpc_id     = aws_vpc.main_vpc.id
   cidr_block = "10.16.0.0/20"
   availability_zone = "us-east-1a"
+
   tags = {
     Name = "Main"
   }
 }
+
+# Crear subnets de la lista
+# Crear Route Table
+# Asignar Route Table a subnets Web
