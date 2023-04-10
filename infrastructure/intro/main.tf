@@ -25,5 +25,3 @@ resource "aws_iam_user" "test_user" {
   name = "my_test_user2"
 }
 
-# 2 users y un user group
-# Role
