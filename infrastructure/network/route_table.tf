@@ -12,16 +12,11 @@ resource "aws_route_table" "upb_web_rt" {
 }
 
 resource "aws_route_table_association" "association_A" {
-  subnet_id      = aws_subnet.sn_web_A.id
-  route_table_id = aws_route_table.upb_web_rt.id
-}
-
-resource "aws_route_table_association" "association_B" {
-  subnet_id      = aws_subnet.sn_web_B.id
-  route_table_id = aws_route_table.upb_web_rt.id
-}
-
-resource "aws_route_table_association" "association_C" {
-  subnet_id      = aws_subnet.sn_web_C.id
+  for_each = {
+    "sn-web-A" = local.subnets.sn-web-A
+    "sn-web-B" = local.subnets.sn-web-B
+    "sn-web-C" = local.subnets.sn-web-C
+  }
+  subnet_id      = aws_subnet.subnets["${each.key}"].id
   route_table_id = aws_route_table.upb_web_rt.id
 }

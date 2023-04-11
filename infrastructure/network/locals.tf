@@ -1,3 +1,4 @@
+# aws_subnet.subnets[KEY]
 locals {
     vpc_cidr = "10.16.0.0/16"
     subnets = {
