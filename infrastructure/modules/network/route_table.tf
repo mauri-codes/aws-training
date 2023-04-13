@@ -7,7 +7,7 @@ resource "aws_route_table" "upb_web_rt" {
   }
 
   tags = {
-    Name = "upb_web_rt"
+    Name = "${var.app_prefix}-rt"
   }
 }
 
