@@ -10,3 +10,7 @@ variable "role_name" {
 variable "policy_statement" {
     description = "AWS policy statement"
 }
+
+variable "policy_arns" {
+    # type = Array(string)
+}
