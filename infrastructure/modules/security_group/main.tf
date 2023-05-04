@@ -4,7 +4,7 @@ data "aws_vpc" "default_vpc" {
 
 resource "aws_security_group" "allow_tls" {
   name        = var.sg_name
-  vpc_id      = var.vpc_id == "default_vpc" ? aws_vpc.default_vpc.id : var.vpc_id
+  vpc_id      = var.vpc_id == "default_vpc" ? data.aws_vpc.default_vpc.id : var.vpc_id
 
   dynamic ingress {
     for_each = var.ingress_rules
